@@ -2,13 +2,15 @@
 
 const navItem = document.querySelectorAll('.nav-link');
 navItem.forEach((item) => {
-   item.addEventListener('mouseover', () => {
+   item.addEventListener('click', () => {
       item.style.color = 'blue';
+      // Prevent Default
+      event.preventDefault();
    });
 });
 
 const logo = document.querySelector('.logo-heading');
-logo.addEventListener('click', () => {
+logo.addEventListener('mouseover', () => {
    logo.style.border = '1px solid green';
 })
 
@@ -65,3 +67,19 @@ const foot = document.querySelector('footer');
 foot.addEventListener('contextmenu', () => {
    foot.style.backgroundColor = "purple";
 })
+
+// Stop Propagation
+
+const body = document.querySelector('body');
+body.addEventListener('click', () => {
+  body.style.backgroundColor = 'papayawhip';
+});
+
+const navBar = document.querySelector('.nav-container');
+navBar.addEventListener('click', () => {
+  navBar.style.backgroundColor = 'rebeccapurple';
+  event.stopPropagation();
+});
+
+// Prevent Default-- See above navItem click event.
+
